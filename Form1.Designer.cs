@@ -50,9 +50,9 @@
             // 
             this.button2.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Location = new System.Drawing.Point(394, 149);
+            this.button2.Location = new System.Drawing.Point(395, 140);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(75, 32);
             this.button2.TabIndex = 3;
             this.button2.Text = "Cashier";
             this.button2.UseVisualStyleBackColor = false;
@@ -61,12 +61,13 @@
             // 
             this.button1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(161, 149);
+            this.button1.Location = new System.Drawing.Point(161, 140);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(75, 32);
             this.button1.TabIndex = 2;
             this.button1.Text = "Storeman";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // titleMainScreen
             // 
@@ -94,7 +95,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Media Store - Admin Panel";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

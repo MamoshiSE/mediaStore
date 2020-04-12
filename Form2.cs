@@ -10,32 +10,33 @@ using System.Windows.Forms;
 
 namespace mediaStore
 {
-    public partial class Form1 : Form
-        
+    public partial class Form2 : Form
     {
-        public Form1()
+        public Form2()
         {
-            
             InitializeComponent();
             this.BackColor = ColorTranslator.FromHtml("#0f1923");
-            titleMainScreen.BackColor = ColorTranslator.FromHtml("#0f1923");
-           
+            titleStoremenScreen.BackColor = ColorTranslator.FromHtml("#0f1923");
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form2_Load(object sender, EventArgs e)
         {
 
         }
 
         private void titleMainScreen_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
-            Form2 f2 = new Form2();
-            f2.ShowDialog(); 
+
+        }
+
+        private void drawAmount_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
