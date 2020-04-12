@@ -11,10 +11,25 @@ using System.Windows.Forms;
 namespace mediaStore
 {
     public partial class Form1 : Form
+        
     {
         public Form1()
         {
+            
             InitializeComponent();
+            this.BackColor = ColorTranslator.FromHtml("#0f1923");
+            titleMainScreen.BackColor = ColorTranslator.FromHtml("#0f1923");
+           
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void titleMainScreen_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
