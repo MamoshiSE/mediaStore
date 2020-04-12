@@ -29,33 +29,33 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.drawAmount = new System.Windows.Forms.TextBox();
+            this.productName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.titleStoremenScreen = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.productPrice = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.productId = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.productMedia = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.productQuantity = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.addProduct = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.addProduct);
+            this.panel1.Controls.Add(this.productMedia);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.productQuantity);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.productId);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.productPrice);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.drawAmount);
+            this.panel1.Controls.Add(this.productName);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.titleStoremenScreen);
             this.panel1.ForeColor = System.Drawing.SystemColors.Window;
@@ -64,13 +64,13 @@
             this.panel1.Size = new System.Drawing.Size(563, 241);
             this.panel1.TabIndex = 0;
             // 
-            // drawAmount
+            // productName
             // 
-            this.drawAmount.Location = new System.Drawing.Point(53, 72);
-            this.drawAmount.Name = "drawAmount";
-            this.drawAmount.Size = new System.Drawing.Size(117, 20);
-            this.drawAmount.TabIndex = 11;
-            this.drawAmount.TextChanged += new System.EventHandler(this.drawAmount_TextChanged);
+            this.productName.Location = new System.Drawing.Point(53, 72);
+            this.productName.Name = "productName";
+            this.productName.Size = new System.Drawing.Size(117, 20);
+            this.productName.TabIndex = 11;
+            this.productName.TextChanged += new System.EventHandler(this.drawAmount_TextChanged);
             // 
             // label2
             // 
@@ -101,12 +101,12 @@
             this.titleStoremenScreen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.titleStoremenScreen.TextChanged += new System.EventHandler(this.titleMainScreen_TextChanged);
             // 
-            // textBox1
+            // productPrice
             // 
-            this.textBox1.Location = new System.Drawing.Point(239, 72);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(73, 20);
-            this.textBox1.TabIndex = 13;
+            this.productPrice.Location = new System.Drawing.Point(239, 72);
+            this.productPrice.Name = "productPrice";
+            this.productPrice.Size = new System.Drawing.Size(73, 20);
+            this.productPrice.TabIndex = 13;
             // 
             // label1
             // 
@@ -118,12 +118,12 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Price:";
             // 
-            // textBox2
+            // productId
             // 
-            this.textBox2.Location = new System.Drawing.Point(406, 72);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(117, 20);
-            this.textBox2.TabIndex = 15;
+            this.productId.Location = new System.Drawing.Point(406, 72);
+            this.productId.Name = "productId";
+            this.productId.Size = new System.Drawing.Size(117, 20);
+            this.productId.TabIndex = 15;
             // 
             // label3
             // 
@@ -135,12 +135,12 @@
             this.label3.TabIndex = 14;
             this.label3.Text = "Product ID:";
             // 
-            // textBox3
+            // productMedia
             // 
-            this.textBox3.Location = new System.Drawing.Point(141, 124);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(117, 20);
-            this.textBox3.TabIndex = 19;
+            this.productMedia.Location = new System.Drawing.Point(141, 124);
+            this.productMedia.Name = "productMedia";
+            this.productMedia.Size = new System.Drawing.Size(117, 20);
+            this.productMedia.TabIndex = 19;
             // 
             // label4
             // 
@@ -152,12 +152,12 @@
             this.label4.TabIndex = 18;
             this.label4.Text = "Media:";
             // 
-            // textBox4
+            // productQuantity
             // 
-            this.textBox4.Location = new System.Drawing.Point(367, 124);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(73, 20);
-            this.textBox4.TabIndex = 17;
+            this.productQuantity.Location = new System.Drawing.Point(367, 124);
+            this.productQuantity.Name = "productQuantity";
+            this.productQuantity.Size = new System.Drawing.Size(73, 20);
+            this.productQuantity.TabIndex = 17;
             // 
             // label5
             // 
@@ -169,16 +169,17 @@
             this.label5.TabIndex = 16;
             this.label5.Text = "Quantity:";
             // 
-            // button1
+            // addProduct
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(239, 174);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 32);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = false;
+            this.addProduct.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.addProduct.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.addProduct.Location = new System.Drawing.Point(239, 174);
+            this.addProduct.Name = "addProduct";
+            this.addProduct.Size = new System.Drawing.Size(75, 32);
+            this.addProduct.TabIndex = 3;
+            this.addProduct.Text = "Add";
+            this.addProduct.UseVisualStyleBackColor = false;
+            this.addProduct.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form2
             // 
@@ -200,16 +201,16 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox titleStoremenScreen;
-        private System.Windows.Forms.TextBox drawAmount;
+        private System.Windows.Forms.TextBox productName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox productMedia;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox productQuantity;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox productId;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox productPrice;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addProduct;
     }
 }
