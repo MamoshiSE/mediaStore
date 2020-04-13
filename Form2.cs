@@ -21,6 +21,8 @@ namespace mediaStore
             this.BackColor = ColorTranslator.FromHtml("#0f1923");
             titleStoremenScreen.BackColor = ColorTranslator.FromHtml("#0f1923");
             dataGridView1.BackgroundColor = ColorTranslator.FromHtml("#0f1923");
+            guideText.BackColor = ColorTranslator.FromHtml("#1b2733");
+            productInventory.BackColor = ColorTranslator.FromHtml("#0f1923");
 
 
         }
@@ -32,7 +34,7 @@ namespace mediaStore
             if (File.Exists("products.csv"))
             {
                 string[] lines = System.IO.File.ReadAllLines("products.csv");
-                for (int i = 0; i < lines.Length; i++)
+                for (int i = 0; i < lines.Length - 1; i++)
                 {
                     // split each value in a line with ","
                     var values = lines[i].Split(',');
@@ -51,6 +53,12 @@ namespace mediaStore
                 dataGridView1.Columns[1].ReadOnly = true;
                 dataGridView1.Columns[2].ReadOnly = true;
                 dataGridView1.Columns[3].ReadOnly = true;
+             /*   var deleteButton = new DataGridViewButtonColumn();
+                deleteButton.Name = "dataGridViewDeleteButton";
+                deleteButton.HeaderText = "Delete";
+                deleteButton.Text = "Delete";
+                deleteButton.UseColumnTextForButtonValue = true;
+                this.dataGridView1.Columns.Insert(5, deleteButton);*/
             }
 
         }
@@ -87,10 +95,15 @@ namespace mediaStore
                 int quantity = Int32.Parse(productQuantity.Text);
                 Product product = new Product(name, price, id, media, quantity);
                 productsList.Add(new Product(name, price, id, media, quantity));
-                writeToCSV(product);
-                // reset datagridview so it updates in realtime and reassign
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = productsList;
+                writeToCSV(product);
+                // reset datagridview so it updates in realtime and reassign
+                 
+               
+               
+                
+
                
                
             }
@@ -110,6 +123,29 @@ namespace mediaStore
             }
             }
 
+        private void updateCSV()
+        {
+            try
+            {
+                var sb = new StringBuilder();
+                {
+                   
+
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        var cells = row.Cells.Cast<DataGridViewCell>();
+                        sb.AppendLine(string.Join(",", cells.Select(cell => cell.Value).ToArray()));
+                    }
+
+                    System.IO.File.WriteAllText("products.csv", sb.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Exception thrown", ex);
+            }
+        }
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -117,16 +153,35 @@ namespace mediaStore
 
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            var sb = new StringBuilder();
 
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            updateCSV();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedCells.Count > 0)
             {
-                var cells = row.Cells.Cast<DataGridViewCell>();
-                sb.AppendLine(string.Join(",", cells.Select(cell =>  cell.Value ).ToArray()));
+                try
+                {
+                    var rowIndex = dataGridView1.CurrentCell.RowIndex;
+                    dataGridView1.DataSource = null;
+                    productsList.RemoveAt(rowIndex);
+                    dataGridView1.DataSource = productsList;
+                    updateCSV();
+                }
+                catch (Exception ex)
+                {
+                    throw new ApplicationException("Exception thrown", ex);
+                }
+            } else
+            {
+                MessageBox.Show("Select the row or a cell inside the row you want to remove.");
             }
-            
-            System.IO.File.WriteAllText("products.csv", sb.ToString());
-            
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+           
         }
     }
     }
