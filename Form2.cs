@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -57,8 +59,29 @@ namespace mediaStore
                 string media = productMedia.Text;
                 int quantity = Int32.Parse(productQuantity.Text);
                 Product product = new Product(name, price, id, media, quantity);
-                MessageBox.Show(product.Name);
+                //  MessageBox.Show(product.Name);
+
+                //  List<Product> productsList = new List<Product>();
+                //productsList.Add(new Product(name, price, id, media, quantity));
+                writeToCSV(product);
             }
         }
+
+        private void writeToCSV(Product product)
+        {
+            try
+            {
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter("products.csv", true))
+                {
+                    file.WriteLine(product.Name + "," + product.Price + "," + product.ProductId + "," + product.Media + "," + product.Quantity);
+                }
+            } catch(Exception ex)
+            {
+                throw new ApplicationException("Exception thrown", ex);
+            }
+            }
+
+          
+        }
     }
-}
+
