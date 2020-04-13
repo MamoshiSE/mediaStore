@@ -14,18 +14,35 @@ namespace mediaStore
 {
     public partial class Form2 : Form
     {
+        List<Product> productsList = new List<Product>();
         public Form2()
         {
             InitializeComponent();
             this.BackColor = ColorTranslator.FromHtml("#0f1923");
             titleStoremenScreen.BackColor = ColorTranslator.FromHtml("#0f1923");
+           
 
-         
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-
+           // read CSV file and store each line in array
+            string[] lines = System.IO.File.ReadAllLines("products.csv");
+            for (int i = 0; i < lines.Length; i++)
+            {
+                // split each value in a line with ","
+                var values = lines[i].Split(',');
+                string name = values[0];
+                double price = double.Parse(values[1]);
+                int id = Int32.Parse(values[2]);
+                string media = values[3];
+                int quantity = Int32.Parse(values[4]);
+                Product product = new Product(name, price, id, media, quantity);
+                productsList.Add(new Product(name, price, id, media, quantity));
+                System.Console.WriteLine(product.Name);
+            }
+               
+          
         }
 
         private void titleMainScreen_TextChanged(object sender, EventArgs e)
@@ -59,10 +76,7 @@ namespace mediaStore
                 string media = productMedia.Text;
                 int quantity = Int32.Parse(productQuantity.Text);
                 Product product = new Product(name, price, id, media, quantity);
-                //  MessageBox.Show(product.Name);
-
-                //  List<Product> productsList = new List<Product>();
-                //productsList.Add(new Product(name, price, id, media, quantity));
+                productsList.Add(new Product(name, price, id, media, quantity));
                 writeToCSV(product);
             }
         }
