@@ -45,6 +45,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.guideText = new System.Windows.Forms.TextBox();
             this.productInventory = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -203,7 +204,7 @@
             this.button1.BackColor = System.Drawing.Color.DarkRed;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(45, 243);
+            this.button1.Location = new System.Drawing.Point(6, 263);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 32);
             this.button1.TabIndex = 20;
@@ -219,16 +220,17 @@
             this.guideText.CausesValidation = false;
             this.guideText.Font = new System.Drawing.Font("OpenSymbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guideText.ForeColor = System.Drawing.SystemColors.Window;
-            this.guideText.Location = new System.Drawing.Point(12, 82);
+            this.guideText.Location = new System.Drawing.Point(6, 67);
             this.guideText.Multiline = true;
             this.guideText.Name = "guideText";
             this.guideText.ReadOnly = true;
-            this.guideText.Size = new System.Drawing.Size(140, 155);
+            this.guideText.Size = new System.Drawing.Size(152, 190);
             this.guideText.TabIndex = 20;
             this.guideText.TabStop = false;
-            this.guideText.Text = "*Note Increase/decrease quantity by editing product column.                 Delet" +
-    "e removes the marked row.";
+            this.guideText.Text = "*Note Increase/decrease quantity by editing product column or using the button fo" +
+    "r the marked row.                  Delete removes the marked row.";
             this.guideText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.guideText.TextChanged += new System.EventHandler(this.guideText_TextChanged);
             // 
             // productInventory
             // 
@@ -238,7 +240,7 @@
             this.productInventory.CausesValidation = false;
             this.productInventory.Font = new System.Drawing.Font("OpenSymbol", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.productInventory.ForeColor = System.Drawing.SystemColors.Window;
-            this.productInventory.Location = new System.Drawing.Point(279, 31);
+            this.productInventory.Location = new System.Drawing.Point(272, 31);
             this.productInventory.Name = "productInventory";
             this.productInventory.ReadOnly = true;
             this.productInventory.Size = new System.Drawing.Size(309, 34);
@@ -248,12 +250,26 @@
             this.productInventory.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.productInventory.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.Location = new System.Drawing.Point(83, 263);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 32);
+            this.button2.TabIndex = 21;
+            this.button2.Text = "Increase";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(769, 439);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.productInventory);
             this.Controls.Add(this.guideText);
             this.Controls.Add(this.button1);
@@ -289,5 +305,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox guideText;
         private System.Windows.Forms.TextBox productInventory;
+        private System.Windows.Forms.Button button2;
     }
 }

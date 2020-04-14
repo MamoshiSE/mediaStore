@@ -14,7 +14,7 @@ namespace mediaStore
 {
     public partial class Form2 : Form
     {
-        List<Product> productsList = new List<Product>();
+        BindingList<Product> productsList = new BindingList<Product>();
         public Form2()
         {
             InitializeComponent();
@@ -29,37 +29,8 @@ namespace mediaStore
 
         private void Form2_Load(object sender, EventArgs e)
         {
-           
-            // read CSV file and store each line in array
-            if (File.Exists("products.csv"))
-            {
-                string[] lines = System.IO.File.ReadAllLines("products.csv");
-                for (int i = 0; i < lines.Length - 1; i++)
-                {
-                    // split each value in a line with ","
-                    var values = lines[i].Split(',');
-                    string name = values[0];
-                    double price = double.Parse(values[1]);
-                    int id = Int32.Parse(values[2]);
-                    string media = values[3];
-                    int quantity = Int32.Parse(values[4]);
-                    Product product = new Product(name, price, id, media, quantity);
-                    productsList.Add(new Product(name, price, id, media, quantity));
 
-                    System.Console.WriteLine(product.Name);
-                }
-                dataGridView1.DataSource = productsList;
-                dataGridView1.Columns[0].ReadOnly = true;
-                dataGridView1.Columns[1].ReadOnly = true;
-                dataGridView1.Columns[2].ReadOnly = true;
-                dataGridView1.Columns[3].ReadOnly = true;
-             /*   var deleteButton = new DataGridViewButtonColumn();
-                deleteButton.Name = "dataGridViewDeleteButton";
-                deleteButton.HeaderText = "Delete";
-                deleteButton.Text = "Delete";
-                deleteButton.UseColumnTextForButtonValue = true;
-                this.dataGridView1.Columns.Insert(5, deleteButton);*/
-            }
+            readCSV();
 
         }
 
@@ -97,17 +68,22 @@ namespace mediaStore
                 int quantity = Int32.Parse(productQuantity.Text);
                 Product product = new Product(name, price, id, media, quantity);
                 productsList.Add(new Product(name, price, id, media, quantity));
-                dataGridView1.DataSource = null;
-                dataGridView1.DataSource = productsList;
-                writeToCSV(product);
-                // reset datagridview so it updates in realtime and reassign
-                 
-               
-               
-                
+                 if (File.Exists("products.csv"))
+                  {
+                      writeToCSV(product);
 
+                  } else
+                  {
+                      writeToCSV(product);
+                    productsList.Clear();
+                      readCSV();
+                  }
                
-               
+
+
+
+
+
             }
         }
 
@@ -119,24 +95,73 @@ namespace mediaStore
                 {
                     file.WriteLine(product.Name + "," + product.Price + "," + product.ProductId + "," + product.Media + "," + product.Quantity);
                 }
+                dataGridView1.Columns[0].ReadOnly = true;
+                dataGridView1.Columns[1].ReadOnly = true;
+                dataGridView1.Columns[2].ReadOnly = true;
+                dataGridView1.Columns[3].ReadOnly = true;
+         
             } catch(Exception ex)
             {
                 throw new ApplicationException("Exception thrown", ex);
             }
             }
 
+        private void readCSV()
+        {
+            // read CSV file and store each line in array
+            if (File.Exists("products.csv"))
+            {
+                string[] lines = System.IO.File.ReadAllLines("products.csv");
+                if (lines.Length > 0)
+                {
+                    for (int i = 0; i < lines.Length; i++)
+                    {
+                        // split each value in a line with ","
+                        var values = lines[i].Split(',');
+                        string name = values[0];
+                        double price = double.Parse(values[1]);
+                        int id = Int32.Parse(values[2]);
+                        string media = values[3];
+                        int quantity = Int32.Parse(values[4]);
+                        Product product = new Product(name, price, id, media, quantity);
+                        productsList.Add(new Product(name, price, id, media, quantity));
+
+
+
+
+                        System.Console.WriteLine(product.Name);
+                    }
+
+                    
+
+
+                }
+
+                dataGridView1.DataSource = productsList;
+                dataGridView1.Columns[0].ReadOnly = true;
+                dataGridView1.Columns[1].ReadOnly = true;
+                dataGridView1.Columns[2].ReadOnly = true;
+                dataGridView1.Columns[3].ReadOnly = true;
+          
+            }
+        }
+
         private void updateCSV()
         {
             try
             {
                 var sb = new StringBuilder();
+             
                 {
                    
 
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
+                        
                         var cells = row.Cells.Cast<DataGridViewCell>();
+                      
                         sb.AppendLine(string.Join(",", cells.Select(cell => cell.Value).ToArray()));
+                     
                     }
 
                     System.IO.File.WriteAllText("products.csv", sb.ToString());
@@ -159,10 +184,7 @@ namespace mediaStore
                         if (productsList[i].ProductId == Int32.Parse(product))
                         {
                             return true;
-                        } else
-                        {
-                            return false;
-                        }
+                        } 
                     }
                 }
             }
@@ -224,6 +246,35 @@ namespace mediaStore
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
            
+        }
+
+        private void guideText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedCells.Count > 0)
+            {
+                try
+                {
+                    var rowIndex = dataGridView1.CurrentCell.RowIndex;
+                    productsList[rowIndex].Quantity += 1;
+                    productsList.ResetBindings();
+                       updateCSV();
+                   
+                   
+                }
+                catch (Exception ex)
+                {
+                    throw new ApplicationException("Exception thrown", ex);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Select the row or a cell inside the row you want to remove.");
+            }
         }
     }
     }
