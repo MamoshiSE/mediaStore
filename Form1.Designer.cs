@@ -41,27 +41,28 @@
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.titleMainScreen);
-            this.panel1.Location = new System.Drawing.Point(77, 12);
+            this.panel1.Location = new System.Drawing.Point(1, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(640, 361);
+            this.panel1.Size = new System.Drawing.Size(623, 191);
             this.panel1.TabIndex = 0;
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Location = new System.Drawing.Point(395, 140);
+            this.button2.Location = new System.Drawing.Point(360, 95);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 32);
             this.button2.TabIndex = 3;
             this.button2.Text = "Cashier";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(161, 140);
+            this.button1.Location = new System.Drawing.Point(220, 95);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 32);
             this.button1.TabIndex = 2;
@@ -77,7 +78,7 @@
             this.titleMainScreen.CausesValidation = false;
             this.titleMainScreen.Font = new System.Drawing.Font("OpenSymbol", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleMainScreen.ForeColor = System.Drawing.SystemColors.Window;
-            this.titleMainScreen.Location = new System.Drawing.Point(161, 33);
+            this.titleMainScreen.Location = new System.Drawing.Point(164, 38);
             this.titleMainScreen.Name = "titleMainScreen";
             this.titleMainScreen.ReadOnly = true;
             this.titleMainScreen.Size = new System.Drawing.Size(309, 34);
@@ -92,7 +93,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(621, 189);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Media Store - Admin Panel";

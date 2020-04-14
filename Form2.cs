@@ -273,7 +273,7 @@ namespace mediaStore
             }
             else
             {
-                MessageBox.Show("Select the row or a cell inside the row you want to remove.");
+                MessageBox.Show("Select the row or a cell inside the row you increase quantity of.");
             }
         }
     }
