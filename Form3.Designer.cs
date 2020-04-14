@@ -37,6 +37,12 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.removeFromCart = new System.Windows.Forms.Button();
+            this.searchBox = new System.Windows.Forms.TextBox();
+            this.searchTitle = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.searchFilterTitle = new System.Windows.Forms.TextBox();
+            this.searchMediaTitle = new System.Windows.Forms.TextBox();
+            this.searchMediaBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -46,6 +52,7 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(173, 62);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(587, 150);
@@ -109,7 +116,7 @@
             this.textBox1.CausesValidation = false;
             this.textBox1.Font = new System.Drawing.Font("OpenSymbol", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.SystemColors.Window;
-            this.textBox1.Location = new System.Drawing.Point(263, 272);
+            this.textBox1.Location = new System.Drawing.Point(264, 283);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(309, 34);
@@ -117,6 +124,7 @@
             this.textBox1.TabStop = false;
             this.textBox1.Text = "Customer cart";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // confirmSell
             // 
@@ -153,7 +161,8 @@
             // 
             this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(248, 312);
+            this.dataGridView2.Location = new System.Drawing.Point(248, 323);
+            this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(389, 150);
@@ -173,12 +182,101 @@
             this.removeFromCart.UseVisualStyleBackColor = false;
             this.removeFromCart.Click += new System.EventHandler(this.button3_Click);
             // 
+            // searchBox
+            // 
+            this.searchBox.Location = new System.Drawing.Point(585, 248);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(137, 20);
+            this.searchBox.TabIndex = 32;
+            this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
+            // 
+            // searchTitle
+            // 
+            this.searchTitle.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+            this.searchTitle.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.searchTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchTitle.CausesValidation = false;
+            this.searchTitle.Font = new System.Drawing.Font("OpenSymbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchTitle.ForeColor = System.Drawing.SystemColors.Window;
+            this.searchTitle.Location = new System.Drawing.Point(554, 218);
+            this.searchTitle.Name = "searchTitle";
+            this.searchTitle.ReadOnly = true;
+            this.searchTitle.Size = new System.Drawing.Size(189, 24);
+            this.searchTitle.TabIndex = 33;
+            this.searchTitle.TabStop = false;
+            this.searchTitle.Text = "Search by product name";
+            this.searchTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.searchTitle.TextChanged += new System.EventHandler(this.searchTitle_TextChanged);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "All",
+            "Available",
+            "Unavailable"});
+            this.comboBox1.Location = new System.Drawing.Point(173, 247);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 34;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // searchFilterTitle
+            // 
+            this.searchFilterTitle.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+            this.searchFilterTitle.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.searchFilterTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchFilterTitle.CausesValidation = false;
+            this.searchFilterTitle.Font = new System.Drawing.Font("OpenSymbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchFilterTitle.ForeColor = System.Drawing.SystemColors.Window;
+            this.searchFilterTitle.Location = new System.Drawing.Point(173, 218);
+            this.searchFilterTitle.Name = "searchFilterTitle";
+            this.searchFilterTitle.ReadOnly = true;
+            this.searchFilterTitle.Size = new System.Drawing.Size(121, 24);
+            this.searchFilterTitle.TabIndex = 35;
+            this.searchFilterTitle.TabStop = false;
+            this.searchFilterTitle.Text = "Filter";
+            this.searchFilterTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.searchFilterTitle.TextChanged += new System.EventHandler(this.a);
+            // 
+            // searchMediaTitle
+            // 
+            this.searchMediaTitle.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+            this.searchMediaTitle.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.searchMediaTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchMediaTitle.CausesValidation = false;
+            this.searchMediaTitle.Font = new System.Drawing.Font("OpenSymbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchMediaTitle.ForeColor = System.Drawing.SystemColors.Window;
+            this.searchMediaTitle.Location = new System.Drawing.Point(326, 218);
+            this.searchMediaTitle.Name = "searchMediaTitle";
+            this.searchMediaTitle.ReadOnly = true;
+            this.searchMediaTitle.Size = new System.Drawing.Size(190, 24);
+            this.searchMediaTitle.TabIndex = 37;
+            this.searchMediaTitle.TabStop = false;
+            this.searchMediaTitle.Text = "Search by media type";
+            this.searchMediaTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // searchMediaBox
+            // 
+            this.searchMediaBox.Location = new System.Drawing.Point(358, 248);
+            this.searchMediaBox.Name = "searchMediaBox";
+            this.searchMediaBox.Size = new System.Drawing.Size(137, 20);
+            this.searchMediaBox.TabIndex = 36;
+            this.searchMediaBox.TextChanged += new System.EventHandler(this.searchMediaBox_TextChanged);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(800, 534);
+            this.Controls.Add(this.searchMediaTitle);
+            this.Controls.Add(this.searchMediaBox);
+            this.Controls.Add(this.searchFilterTitle);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.searchTitle);
+            this.Controls.Add(this.searchBox);
             this.Controls.Add(this.removeFromCart);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.confirmSell);
@@ -209,5 +307,11 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button removeFromCart;
+        private System.Windows.Forms.TextBox searchBox;
+        private System.Windows.Forms.TextBox searchTitle;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox searchFilterTitle;
+        private System.Windows.Forms.TextBox searchMediaTitle;
+        private System.Windows.Forms.TextBox searchMediaBox;
     }
 }

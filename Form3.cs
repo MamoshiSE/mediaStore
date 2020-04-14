@@ -21,6 +21,9 @@ namespace mediaStore
             this.BackColor = ColorTranslator.FromHtml("#0f1923");
             dataGridView1.BackgroundColor = ColorTranslator.FromHtml("#0f1923");
             dataGridView2.BackgroundColor = ColorTranslator.FromHtml("#0f1923");
+            searchTitle.BackColor = ColorTranslator.FromHtml("#0f1923");
+            searchMediaTitle.BackColor = ColorTranslator.FromHtml("#0f1923");
+            searchFilterTitle.BackColor = ColorTranslator.FromHtml("#0f1923");
             
         }
 
@@ -30,6 +33,10 @@ namespace mediaStore
             dataGridView2.DataSource = customerCart;
             dataGridView2.Columns["quantity"].Visible = false;
             dataGridView2.Columns["media"].Visible = false;
+            comboBox1.SelectedIndex = 0;
+            
+
+
         }
         private void readCSV()
         {
@@ -169,6 +176,84 @@ namespace mediaStore
             {
                 MessageBox.Show("Select the row or a cell inside the row you want to remove from cart.");
             }
+        }
+
+     
+
+        private void searchBox_TextChanged(object sender, EventArgs e)
+        {
+
+            BindingList<Product> filtered = new BindingList<Product>(productsList.Where(obj => obj.Name.ToUpper().Contains(searchBox.Text.ToUpper())).ToList());
+         
+            
+             dataGridView1.DataSource = filtered;
+             dataGridView1.Update();
+        
+        }
+
+        private void searchBox_Click(object sender, EventArgs e)
+        {
+            searchBox.Text = string.Empty;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchTitle_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            availableFilter();
+        }
+
+        private void availableFilter()
+        {
+            try
+            {
+
+              
+                if (comboBox1.SelectedItem.ToString() == "Available" )
+                {
+                   
+                    BindingList<Product> filtered = new BindingList<Product>(productsList.Where(obj => obj.Quantity > 0).ToList());
+
+
+                    dataGridView1.DataSource = filtered;
+                    dataGridView1.Update();
+                } else if (comboBox1.SelectedItem.ToString() == "Unavailable")
+                {
+                    BindingList<Product> filtered = new BindingList<Product>(productsList.Where(obj => obj.Quantity == 0).ToList());
+                    dataGridView1.DataSource = filtered;
+                    dataGridView1.Update();
+                } else
+                {
+                    dataGridView1.DataSource = productsList;
+                    dataGridView1.Update();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Exception thrown", ex);
+            }
+        }
+
+        private void a(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchMediaBox_TextChanged(object sender, EventArgs e)
+        {
+            BindingList<Product> filtered = new BindingList<Product>(productsList.Where(obj => obj.Media.ToUpper().Contains(searchMediaBox.Text.ToUpper())).ToList());
+
+
+            dataGridView1.DataSource = filtered;
+            dataGridView1.Update();
         }
     }
 }
