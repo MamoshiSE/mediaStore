@@ -85,6 +85,8 @@ namespace mediaStore
             {
               
                 MessageBox.Show("Please fill in all input fields");
+            } else if (checkProductId(productId.Text) == true){
+                MessageBox.Show("Product ID already exists.");
             }
             else
             {
@@ -146,6 +148,32 @@ namespace mediaStore
             }
         }
 
+        private bool checkProductId(String product)
+        {
+            try
+            {
+               
+                {
+                   for (int i = 0; i <productsList.Count; i++)
+                    {
+                        if (productsList[i].ProductId == Int32.Parse(product))
+                        {
+                            return true;
+                        } else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Exception thrown", ex);
+               
+            }
+            return false;
+        }
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -164,10 +192,24 @@ namespace mediaStore
                 try
                 {
                     var rowIndex = dataGridView1.CurrentCell.RowIndex;
-                    dataGridView1.DataSource = null;
-                    productsList.RemoveAt(rowIndex);
-                    dataGridView1.DataSource = productsList;
-                    updateCSV();
+                    if (productsList[rowIndex].Quantity < 1)
+                    {
+                        dataGridView1.DataSource = null;
+                        productsList.RemoveAt(rowIndex);
+                        dataGridView1.DataSource = productsList;
+                        updateCSV();
+                    } else
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Are you sure you want to remove this product from inventory?", "Some Title", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            dataGridView1.DataSource = null;
+                            productsList.RemoveAt(rowIndex);
+                            dataGridView1.DataSource = productsList;
+                            updateCSV();
+                        }
+                       
+                    }
                 }
                 catch (Exception ex)
                 {
