@@ -13,14 +13,18 @@ namespace mediaStore
         public int ProductId { get; set; }
         public string Media { get; set; }
         public int Quantity { get; set; }
+        public int Sold { get; set; }
+        
 
-        public Product(string name, double price, int productId, string media, int quantity)
+        public Product(string name, double price, int productId, string media, int quantity, int sold)
         {
+           
             Name = name;
             Price = price;
             ProductId = productId;
             Media = media;
             Quantity = quantity;
+            Sold = sold;
         }
     }
 }

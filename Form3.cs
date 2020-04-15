@@ -15,7 +15,6 @@ namespace mediaStore
     {
         BindingList<Product> productsList = new BindingList<Product>();
         BindingList<Product> customerCart = new BindingList<Product>();
-        BindingList<Order> soldItems = new BindingList<Order>();
         double totalCost;
         public Form3()
         {
@@ -32,10 +31,10 @@ namespace mediaStore
         private void Form3_Load(object sender, EventArgs e)
         {
             readCSV();
-            readOrdersCSV();
             dataGridView2.DataSource = customerCart;
             dataGridView2.Columns["quantity"].Visible = false;
             dataGridView2.Columns["media"].Visible = false;
+            dataGridView2.Columns["sold"].Visible = false;
             comboBox1.SelectedIndex = 0;
            
            
@@ -59,8 +58,9 @@ namespace mediaStore
                         int id = Int32.Parse(values[2]);
                         string media = values[3];
                         int quantity = Int32.Parse(values[4]);
-                        Product product = new Product(name, price, id, media, quantity);
-                        productsList.Add(new Product(name, price, id, media, quantity));
+                        int sold = Int32.Parse(values[5]);
+                        Product product = new Product(name, price, id, media, quantity, sold);
+                        productsList.Add(new Product(name, price, id, media, quantity, sold));
 
 
 
@@ -124,6 +124,7 @@ namespace mediaStore
                         productsList[rowIndex].Quantity -= 1;
                         productsList.ResetBindings();
                         updateCSV();
+                        
                         customerCart.Add(productsList[rowIndex]);
                         totalCartCost();
 
@@ -286,6 +287,7 @@ namespace mediaStore
             // adding all ids of a sold product in 1 order
             string productIds = "";
             int linesCount = 0;
+            int index = 0;
             // order id increments by 1 for each existing receipt
             if (File.Exists("orders.csv")) { 
                  linesCount = System.IO.File.ReadAllLines("orders.csv").Count();
@@ -297,14 +299,25 @@ namespace mediaStore
                     productIds += customerCart[i].ProductId + ";";
                 }
                 Order orders = new Order(totalCost, productIds, linesCount + 1);
-                soldItems.Add(orders);
                 writeOrdersToCSV(orders);
-                
+
+                foreach (DataGridViewRow row in dataGridView2.Rows)
+                {
+
+                    customerCart[index].Sold += 1;
+                    index++;
+
+                }
+                productsList.ResetBindings();
+                customerCart.Clear();
+                updateCSV();
+
                 System.Console.WriteLine(orders.date);
             } else
             {
                 MessageBox.Show("There is no items in the cart.");
             }
+           
         }
 
         private void writeOrdersToCSV(Order orders)
@@ -325,36 +338,6 @@ namespace mediaStore
             }
         }
 
-        private void readOrdersCSV() // behövs i form 1
-        {
-            // read CSV file and store each line in array
-            if (File.Exists("orders.csv"))
-            {
-                string[] lines = System.IO.File.ReadAllLines("orders.csv");
-                var productsIds = new List<string>(); // list of all product ids
-                if (lines.Length > 0)
-                {
-                    for (int i = 0; i < lines.Length; i++)
-                    {
-                        // split each value in a line with ","
-                        var values = lines[i].Split(',');
-                        int OrderId = Int32.Parse(values[0]);
-                        double TotalPrice = double.Parse(values[1]);
-                        var productIds = values[2].Split(';');
-                       
-                            for (int j = 0; j < productIds.Length; j++)
-                            {
-                                productsIds.Add(productIds[j]);
-                                System.Console.WriteLine(productIds[j]);
-                            
-                        }
-                            
-                        string date = values[3];
-                    }
-
-                }
-            }
-        }
 
 
     }

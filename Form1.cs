@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,6 +43,37 @@ namespace mediaStore
         {
             Form3 f3 = new Form3();
             f3.ShowDialog();
+        }
+
+        private void readOrdersCSV() // behövs i form 1
+        {
+            // read CSV file and store each line in array
+            if (File.Exists("orders.csv"))
+            {
+                string[] lines = System.IO.File.ReadAllLines("orders.csv");
+                var productsIds = new List<string>(); // list of all product ids
+                if (lines.Length > 0)
+                {
+                    for (int i = 0; i < lines.Length; i++)
+                    {
+                        // split each value in a line with ","
+                        var values = lines[i].Split(',');
+                        int OrderId = Int32.Parse(values[0]);
+                        double TotalPrice = double.Parse(values[1]);
+                        var productIds = values[2].Split(';');
+
+                        for (int j = 0; j < productIds.Length; j++)
+                        {
+                            productsIds.Add(productIds[j]);
+                            System.Console.WriteLine(productIds[j]);
+
+                        }
+
+                        string date = values[3];
+                    }
+
+                }
+            }
         }
     }
 }

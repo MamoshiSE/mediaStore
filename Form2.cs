@@ -66,8 +66,9 @@ namespace mediaStore
                 int id = Int32.Parse(productId.Text);
                 string media = productMedia.Text;
                 int quantity = Int32.Parse(productQuantity.Text);
-                Product product = new Product(name, price, id, media, quantity);
-                productsList.Add(new Product(name, price, id, media, quantity));
+                int sold = 0;
+                Product product = new Product(name, price, id, media, quantity, sold);
+                productsList.Add(new Product(name, price, id, media, quantity, sold));
                  if (File.Exists("products.csv"))
                   {
                       writeToCSV(product);
@@ -93,7 +94,7 @@ namespace mediaStore
             {
                 using (System.IO.StreamWriter file = new System.IO.StreamWriter("products.csv", true))
                 {
-                    file.WriteLine(product.Name + "," + product.Price + "," + product.ProductId + "," + product.Media + "," + product.Quantity);
+                    file.WriteLine(product.Name + "," + product.Price + "," + product.ProductId + "," + product.Media + "," + product.Quantity + "," + product.Sold);
                 }
               
          
@@ -120,13 +121,14 @@ namespace mediaStore
                         int id = Int32.Parse(values[2]);
                         string media = values[3];
                         int quantity = Int32.Parse(values[4]);
-                        Product product = new Product(name, price, id, media, quantity);
-                        productsList.Add(new Product(name, price, id, media, quantity));
+                        int sold = Int32.Parse(values[5]);
+                        Product product = new Product(name, price, id, media, quantity, sold);
+                        productsList.Add(new Product(name, price, id, media, quantity, sold));
 
 
 
 
-                        System.Console.WriteLine(product.Name);
+                       
                     }
 
                     
