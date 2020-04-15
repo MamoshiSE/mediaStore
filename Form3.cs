@@ -15,6 +15,8 @@ namespace mediaStore
     {
         BindingList<Product> productsList = new BindingList<Product>();
         BindingList<Product> customerCart = new BindingList<Product>();
+        BindingList<Order> soldItems = new BindingList<Order>();
+        double totalCost;
         public Form3()
         {
             InitializeComponent();
@@ -30,12 +32,13 @@ namespace mediaStore
         private void Form3_Load(object sender, EventArgs e)
         {
             readCSV();
+            readOrdersCSV();
             dataGridView2.DataSource = customerCart;
             dataGridView2.Columns["quantity"].Visible = false;
             dataGridView2.Columns["media"].Visible = false;
             comboBox1.SelectedIndex = 0;
-            Order orders = new Order(productsList[0].Price, productsList[0].ProductId, productsList);
-            System.Console.WriteLine(orders.Products);
+           
+           
 
 
         }
@@ -122,6 +125,8 @@ namespace mediaStore
                         productsList.ResetBindings();
                         updateCSV();
                         customerCart.Add(productsList[rowIndex]);
+                        totalCartCost();
+
                     } else
                     {
                         MessageBox.Show("This product is sold out.");
@@ -256,5 +261,101 @@ namespace mediaStore
             dataGridView1.DataSource = filtered;
             dataGridView1.Update();
         }
+
+        private void totalCartCost()
+        {
+            totalCost = 0;
+            if(customerCart.Count > 0)
+            {
+                for(int i = 0; i < customerCart.Count; i++)
+                {
+                    totalCost += customerCart[i].Price;
+                }
+                
+            }
+            totalCostBox.Text = totalCost.ToString() + " SEK";
+        }
+
+        private void dataGridView2_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+          
+        }
+
+        private void confirmSell_Click(object sender, EventArgs e)
+        {
+            // adding all ids of a sold product in 1 order
+            string productIds = "";
+            int linesCount = 0;
+            // order id increments by 1 for each existing receipt
+            if (File.Exists("orders.csv")) { 
+                 linesCount = System.IO.File.ReadAllLines("orders.csv").Count();
+        } 
+            if (customerCart.Count > 0)
+            {
+                for (int i = 0; i < customerCart.Count; i++)
+                {
+                    productIds += customerCart[i].ProductId + ";";
+                }
+                Order orders = new Order(totalCost, productIds, linesCount + 1);
+                soldItems.Add(orders);
+                writeOrdersToCSV(orders);
+                
+                System.Console.WriteLine(orders.date);
+            } else
+            {
+                MessageBox.Show("There is no items in the cart.");
+            }
+        }
+
+        private void writeOrdersToCSV(Order orders)
+        {
+            
+            try
+            {
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter("orders.csv", true))
+                {
+                    file.WriteLine(orders.OrderId + "," + orders.TotalPrice + "," + orders.Products + "," + orders.date);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Exception thrown", ex);
+            }
+        }
+
+        private void readOrdersCSV() // behövs i form 1
+        {
+            // read CSV file and store each line in array
+            if (File.Exists("orders.csv"))
+            {
+                string[] lines = System.IO.File.ReadAllLines("orders.csv");
+                var productsIds = new List<string>(); // list of all product ids
+                if (lines.Length > 0)
+                {
+                    for (int i = 0; i < lines.Length; i++)
+                    {
+                        // split each value in a line with ","
+                        var values = lines[i].Split(',');
+                        int OrderId = Int32.Parse(values[0]);
+                        double TotalPrice = double.Parse(values[1]);
+                        var productIds = values[2].Split(';');
+                       
+                            for (int j = 0; j < productIds.Length; j++)
+                            {
+                                productsIds.Add(productIds[j]);
+                                System.Console.WriteLine(productIds[j]);
+                            
+                        }
+                            
+                        string date = values[3];
+                    }
+
+                }
+            }
+        }
+
+
     }
 }

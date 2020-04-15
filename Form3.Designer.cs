@@ -43,6 +43,8 @@
             this.searchFilterTitle = new System.Windows.Forms.TextBox();
             this.searchMediaTitle = new System.Windows.Forms.TextBox();
             this.searchMediaBox = new System.Windows.Forms.TextBox();
+            this.totalCostBox = new System.Windows.Forms.TextBox();
+            this.totalCostTitle = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -137,6 +139,7 @@
             this.confirmSell.TabIndex = 28;
             this.confirmSell.Text = "Confirm sale";
             this.confirmSell.UseVisualStyleBackColor = false;
+            this.confirmSell.Click += new System.EventHandler(this.confirmSell_Click);
             // 
             // textBox2
             // 
@@ -168,6 +171,7 @@
             this.dataGridView2.Size = new System.Drawing.Size(389, 150);
             this.dataGridView2.TabIndex = 26;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.dataGridView2.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellValueChanged);
             // 
             // removeFromCart
             // 
@@ -265,12 +269,39 @@
             this.searchMediaBox.TabIndex = 36;
             this.searchMediaBox.TextChanged += new System.EventHandler(this.searchMediaBox_TextChanged);
             // 
+            // totalCostBox
+            // 
+            this.totalCostBox.Location = new System.Drawing.Point(643, 453);
+            this.totalCostBox.Name = "totalCostBox";
+            this.totalCostBox.ReadOnly = true;
+            this.totalCostBox.Size = new System.Drawing.Size(100, 20);
+            this.totalCostBox.TabIndex = 38;
+            // 
+            // totalCostTitle
+            // 
+            this.totalCostTitle.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+            this.totalCostTitle.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.totalCostTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.totalCostTitle.CausesValidation = false;
+            this.totalCostTitle.Font = new System.Drawing.Font("OpenSymbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalCostTitle.ForeColor = System.Drawing.SystemColors.Window;
+            this.totalCostTitle.Location = new System.Drawing.Point(643, 423);
+            this.totalCostTitle.Name = "totalCostTitle";
+            this.totalCostTitle.ReadOnly = true;
+            this.totalCostTitle.Size = new System.Drawing.Size(100, 24);
+            this.totalCostTitle.TabIndex = 39;
+            this.totalCostTitle.TabStop = false;
+            this.totalCostTitle.Text = "Total cost:";
+            this.totalCostTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(800, 534);
+            this.Controls.Add(this.totalCostTitle);
+            this.Controls.Add(this.totalCostBox);
             this.Controls.Add(this.searchMediaTitle);
             this.Controls.Add(this.searchMediaBox);
             this.Controls.Add(this.searchFilterTitle);
@@ -313,5 +344,7 @@
         private System.Windows.Forms.TextBox searchFilterTitle;
         private System.Windows.Forms.TextBox searchMediaTitle;
         private System.Windows.Forms.TextBox searchMediaBox;
+        private System.Windows.Forms.TextBox totalCostBox;
+        private System.Windows.Forms.TextBox totalCostTitle;
     }
 }

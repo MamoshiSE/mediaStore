@@ -95,10 +95,7 @@ namespace mediaStore
                 {
                     file.WriteLine(product.Name + "," + product.Price + "," + product.ProductId + "," + product.Media + "," + product.Quantity);
                 }
-                dataGridView1.Columns[0].ReadOnly = true;
-                dataGridView1.Columns[1].ReadOnly = true;
-                dataGridView1.Columns[2].ReadOnly = true;
-                dataGridView1.Columns[3].ReadOnly = true;
+              
          
             } catch(Exception ex)
             {
