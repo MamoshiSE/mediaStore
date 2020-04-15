@@ -34,7 +34,8 @@ namespace mediaStore
             dataGridView2.Columns["quantity"].Visible = false;
             dataGridView2.Columns["media"].Visible = false;
             comboBox1.SelectedIndex = 0;
-            
+            Order orders = new Order(productsList[0].Price, productsList[0].ProductId, productsList);
+            System.Console.WriteLine(orders.Products);
 
 
         }
@@ -250,7 +251,7 @@ namespace mediaStore
         private void searchMediaBox_TextChanged(object sender, EventArgs e)
         {
             BindingList<Product> filtered = new BindingList<Product>(productsList.Where(obj => obj.Media.ToUpper().Contains(searchMediaBox.Text.ToUpper())).ToList());
-
+            
 
             dataGridView1.DataSource = filtered;
             dataGridView1.Update();
