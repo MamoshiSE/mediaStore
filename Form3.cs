@@ -32,6 +32,7 @@ namespace mediaStore
         {
             readCSV();
             dataGridView2.DataSource = customerCart;
+            dataGridView1.Columns["sold"].Visible = false;
             dataGridView2.Columns["quantity"].Visible = false;
             dataGridView2.Columns["media"].Visible = false;
             dataGridView2.Columns["sold"].Visible = false;
@@ -123,7 +124,7 @@ namespace mediaStore
                         
                         productsList[rowIndex].Quantity -= 1;
                         productsList.ResetBindings();
-                        updateCSV();
+                      
                         
                         customerCart.Add(productsList[rowIndex]);
                         totalCartCost();
@@ -308,11 +309,22 @@ namespace mediaStore
                     index++;
 
                 }
+               
+                DialogResult dialogResult = MessageBox.Show("Do you want to print out a receipt?", "Sale receipt", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    if (printDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        printDocument1.Print();
+                    }
+
+                }
+
                 productsList.ResetBindings();
                 customerCart.Clear();
                 updateCSV();
+                totalCostBox.Text = "0";
 
-                System.Console.WriteLine(orders.date);
             } else
             {
                 MessageBox.Show("There is no items in the cart.");
@@ -339,6 +351,12 @@ namespace mediaStore
         }
 
 
-
+     
+        private void printDocument1_PrintPage_1(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Bitmap bm = new Bitmap(this.dataGridView2.Width, this.dataGridView2.Height);
+            dataGridView2.DrawToBitmap(bm, new Rectangle(0, 0, this.dataGridView2.Width, this.dataGridView2.Height));
+            e.Graphics.DrawImage(bm, 0, 0);
+        }
     }
 }

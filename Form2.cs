@@ -141,7 +141,8 @@ namespace mediaStore
                 dataGridView1.Columns[1].ReadOnly = true;
                 dataGridView1.Columns[2].ReadOnly = true;
                 dataGridView1.Columns[3].ReadOnly = true;
-          
+                dataGridView1.Columns["sold"].Visible = false;
+
             }
         }
 
