@@ -62,6 +62,7 @@ namespace mediaStore
                         int sold = Int32.Parse(values[5]);
                         Product product = new Product(name, price, id, media, quantity, sold);
                         productsList.Add(new Product(name, price, id, media, quantity, sold));
+                        
                     }
                 }
 

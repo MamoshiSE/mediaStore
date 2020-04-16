@@ -156,7 +156,6 @@
             this.productName.Name = "productName";
             this.productName.Size = new System.Drawing.Size(92, 20);
             this.productName.TabIndex = 11;
-       
             // 
             // label2
             // 
@@ -167,12 +166,11 @@
             this.label2.Size = new System.Drawing.Size(53, 16);
             this.label2.TabIndex = 10;
             this.label2.Text = "Name:";
-           
             // 
             // titleStoremenScreen
             // 
             this.titleStoremenScreen.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-            this.titleStoremenScreen.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.titleStoremenScreen.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.titleStoremenScreen.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.titleStoremenScreen.CausesValidation = false;
             this.titleStoremenScreen.Font = new System.Drawing.Font("OpenSymbol", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -185,7 +183,6 @@
             this.titleStoremenScreen.TabStop = false;
             this.titleStoremenScreen.Text = "Add new product";
             this.titleStoremenScreen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-          
             // 
             // dataGridView1
             // 
@@ -196,7 +193,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(600, 205);
             this.dataGridView1.TabIndex = 1;
-          
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             // 
             // button1
@@ -215,7 +211,7 @@
             // guideText
             // 
             this.guideText.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-            this.guideText.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.guideText.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.guideText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.guideText.CausesValidation = false;
             this.guideText.Font = new System.Drawing.Font("OpenSymbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -230,12 +226,11 @@
             this.guideText.Text = "*Note Increase/decrease quantity by editing product column or using the button fo" +
     "r the marked row.                  Delete removes the marked row.";
             this.guideText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-          
             // 
             // productInventory
             // 
             this.productInventory.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-            this.productInventory.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.productInventory.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.productInventory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.productInventory.CausesValidation = false;
             this.productInventory.Font = new System.Drawing.Font("OpenSymbol", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -248,7 +243,6 @@
             this.productInventory.TabStop = false;
             this.productInventory.Text = "Products inventory";
             this.productInventory.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            
             // 
             // button2
             // 

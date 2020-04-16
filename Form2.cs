@@ -19,10 +19,8 @@ namespace mediaStore
         {
             InitializeComponent();
             this.BackColor = ColorTranslator.FromHtml("#0f1923");
-            titleStoremenScreen.BackColor = ColorTranslator.FromHtml("#0f1923");
             dataGridView1.BackgroundColor = ColorTranslator.FromHtml("#0f1923");
-            guideText.BackColor = ColorTranslator.FromHtml("#1b2733");
-            productInventory.BackColor = ColorTranslator.FromHtml("#0f1923");
+            
 
 
         }

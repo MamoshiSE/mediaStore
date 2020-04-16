@@ -80,7 +80,7 @@
             // guideText
             // 
             this.guideText.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-            this.guideText.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.guideText.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.guideText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.guideText.CausesValidation = false;
             this.guideText.Font = new System.Drawing.Font("OpenSymbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -95,12 +95,11 @@
             this.guideText.Text = "     *Note                   Click on sell button to add marked item to customers" +
     " cart.";
             this.guideText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            
             // 
             // productInventory
             // 
             this.productInventory.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-            this.productInventory.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.productInventory.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.productInventory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.productInventory.CausesValidation = false;
             this.productInventory.Font = new System.Drawing.Font("OpenSymbol", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -117,7 +116,7 @@
             // textBox1
             // 
             this.textBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-            this.textBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBox1.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.CausesValidation = false;
             this.textBox1.Font = new System.Drawing.Font("OpenSymbol", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -130,7 +129,6 @@
             this.textBox1.TabStop = false;
             this.textBox1.Text = "Customer cart";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            
             // 
             // confirmSell
             // 
@@ -148,7 +146,7 @@
             // textBox2
             // 
             this.textBox2.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-            this.textBox2.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBox2.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.CausesValidation = false;
             this.textBox2.Font = new System.Drawing.Font("OpenSymbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -174,8 +172,6 @@
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(389, 150);
             this.dataGridView2.TabIndex = 26;
-           
-          
             // 
             // removeFromCart
             // 
@@ -201,7 +197,7 @@
             // searchTitle
             // 
             this.searchTitle.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-            this.searchTitle.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.searchTitle.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.searchTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchTitle.CausesValidation = false;
             this.searchTitle.Font = new System.Drawing.Font("OpenSymbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -214,7 +210,6 @@
             this.searchTitle.TabStop = false;
             this.searchTitle.Text = "Search by product name";
             this.searchTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-           
             // 
             // comboBox1
             // 
@@ -233,7 +228,7 @@
             // searchFilterTitle
             // 
             this.searchFilterTitle.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-            this.searchFilterTitle.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.searchFilterTitle.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.searchFilterTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchFilterTitle.CausesValidation = false;
             this.searchFilterTitle.Font = new System.Drawing.Font("OpenSymbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -246,12 +241,11 @@
             this.searchFilterTitle.TabStop = false;
             this.searchFilterTitle.Text = "Filter";
             this.searchFilterTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-         
             // 
             // searchMediaTitle
             // 
             this.searchMediaTitle.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-            this.searchMediaTitle.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.searchMediaTitle.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.searchMediaTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchMediaTitle.CausesValidation = false;
             this.searchMediaTitle.Font = new System.Drawing.Font("OpenSymbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -285,7 +279,7 @@
             // totalCostTitle
             // 
             this.totalCostTitle.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-            this.totalCostTitle.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.totalCostTitle.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.totalCostTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.totalCostTitle.CausesValidation = false;
             this.totalCostTitle.Font = new System.Drawing.Font("OpenSymbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
