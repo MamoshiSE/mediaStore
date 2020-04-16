@@ -29,25 +29,10 @@ namespace mediaStore
 
         private void Form2_Load(object sender, EventArgs e)
         {
-
             readCSV();
-
         }
 
-        private void titleMainScreen_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void drawAmount_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -79,12 +64,6 @@ namespace mediaStore
                     productsList.Clear();
                       readCSV();
                   }
-               
-
-
-
-
-
             }
         }
 
@@ -124,16 +103,7 @@ namespace mediaStore
                         int sold = Int32.Parse(values[5]);
                         Product product = new Product(name, price, id, media, quantity, sold);
                         productsList.Add(new Product(name, price, id, media, quantity, sold));
-
-
-
-
-                       
                     }
-
-                    
-
-
                 }
 
                 dataGridView1.DataSource = productsList;
@@ -196,11 +166,7 @@ namespace mediaStore
             return false;
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
+    
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -243,15 +209,6 @@ namespace mediaStore
             }
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void guideText_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {

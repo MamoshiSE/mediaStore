@@ -62,16 +62,7 @@ namespace mediaStore
                         int sold = Int32.Parse(values[5]);
                         Product product = new Product(name, price, id, media, quantity, sold);
                         productsList.Add(new Product(name, price, id, media, quantity, sold));
-
-
-
-
-                        System.Console.WriteLine(product.Name);
                     }
-
-
-
-
                 }
 
                 dataGridView1.DataSource = productsList;
@@ -107,10 +98,7 @@ namespace mediaStore
             }
         }
 
-        private void guideText_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -147,10 +135,7 @@ namespace mediaStore
             }
         }
 
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+    
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -204,15 +189,7 @@ namespace mediaStore
             searchBox.Text = string.Empty;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void searchTitle_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -250,10 +227,7 @@ namespace mediaStore
             }
         }
 
-        private void a(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void searchMediaBox_TextChanged(object sender, EventArgs e)
         {
@@ -278,10 +252,7 @@ namespace mediaStore
             totalCostBox.Text = totalCost.ToString() + " SEK";
         }
 
-        private void dataGridView2_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-          
-        }
+      
 
         private void confirmSell_Click(object sender, EventArgs e)
         {

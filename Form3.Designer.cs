@@ -95,7 +95,7 @@
             this.guideText.Text = "     *Note                   Click on sell button to add marked item to customers" +
     " cart.";
             this.guideText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.guideText.TextChanged += new System.EventHandler(this.guideText_TextChanged);
+            
             // 
             // productInventory
             // 
@@ -130,7 +130,7 @@
             this.textBox1.TabStop = false;
             this.textBox1.Text = "Customer cart";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            
             // 
             // confirmSell
             // 
@@ -174,8 +174,8 @@
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(389, 150);
             this.dataGridView2.TabIndex = 26;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            this.dataGridView2.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellValueChanged);
+           
+          
             // 
             // removeFromCart
             // 
@@ -214,7 +214,7 @@
             this.searchTitle.TabStop = false;
             this.searchTitle.Text = "Search by product name";
             this.searchTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.searchTitle.TextChanged += new System.EventHandler(this.searchTitle_TextChanged);
+           
             // 
             // comboBox1
             // 
@@ -246,7 +246,7 @@
             this.searchFilterTitle.TabStop = false;
             this.searchFilterTitle.Text = "Filter";
             this.searchFilterTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.searchFilterTitle.TextChanged += new System.EventHandler(this.a);
+         
             // 
             // searchMediaTitle
             // 

@@ -156,7 +156,7 @@
             this.productName.Name = "productName";
             this.productName.Size = new System.Drawing.Size(92, 20);
             this.productName.TabIndex = 11;
-            this.productName.TextChanged += new System.EventHandler(this.drawAmount_TextChanged);
+       
             // 
             // label2
             // 
@@ -167,7 +167,7 @@
             this.label2.Size = new System.Drawing.Size(53, 16);
             this.label2.TabIndex = 10;
             this.label2.Text = "Name:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+           
             // 
             // titleStoremenScreen
             // 
@@ -185,7 +185,7 @@
             this.titleStoremenScreen.TabStop = false;
             this.titleStoremenScreen.Text = "Add new product";
             this.titleStoremenScreen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.titleStoremenScreen.TextChanged += new System.EventHandler(this.titleMainScreen_TextChanged);
+          
             // 
             // dataGridView1
             // 
@@ -196,7 +196,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(600, 205);
             this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+          
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             // 
             // button1
@@ -230,7 +230,7 @@
             this.guideText.Text = "*Note Increase/decrease quantity by editing product column or using the button fo" +
     "r the marked row.                  Delete removes the marked row.";
             this.guideText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.guideText.TextChanged += new System.EventHandler(this.guideText_TextChanged);
+          
             // 
             // productInventory
             // 
@@ -248,7 +248,7 @@
             this.productInventory.TabStop = false;
             this.productInventory.Text = "Products inventory";
             this.productInventory.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.productInventory.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            
             // 
             // button2
             // 
