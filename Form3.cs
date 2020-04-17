@@ -330,5 +330,44 @@ namespace mediaStore
             dataGridView2.DrawToBitmap(bm, new Rectangle(0, 0, this.dataGridView2.Width, this.dataGridView2.Height));
             e.Graphics.DrawImage(bm, 0, 0);
         }
+
+        private void returnItem_Click(object sender, EventArgs e)
+        {
+            {
+                if (dataGridView1.SelectedCells.Count > 0)
+                {
+                    try
+                    {
+                        var rowIndex = dataGridView1.CurrentCell.RowIndex;
+                       
+
+                            
+
+                        DialogResult dialogResult = MessageBox.Show("Are you sure you want to return " + productsList[rowIndex].Name + " for " + productsList[rowIndex].Price + " SEK?", "Item return", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            productsList[rowIndex].Quantity += 1;
+                            productsList.ResetBindings();
+                            updateCSV();
+
+                        }
+
+
+                    }
+                        
+
+
+                    
+                    catch (Exception ex)
+                    {
+                        throw new ApplicationException("Exception thrown", ex);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Select the row or a cell inside the row of the product you want to return.");
+                }
+            }
+        }
     }
 }

@@ -49,6 +49,7 @@
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.returnItem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -69,11 +70,11 @@
             this.addToCart.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.addToCart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addToCart.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.addToCart.Location = new System.Drawing.Point(54, 180);
+            this.addToCart.Location = new System.Drawing.Point(5, 218);
             this.addToCart.Name = "addToCart";
-            this.addToCart.Size = new System.Drawing.Size(75, 32);
+            this.addToCart.Size = new System.Drawing.Size(78, 32);
             this.addToCart.TabIndex = 24;
-            this.addToCart.Text = "Sell";
+            this.addToCart.Text = "Sell Item";
             this.addToCart.UseVisualStyleBackColor = false;
             this.addToCart.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -85,15 +86,15 @@
             this.guideText.CausesValidation = false;
             this.guideText.Font = new System.Drawing.Font("OpenSymbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guideText.ForeColor = System.Drawing.SystemColors.Window;
-            this.guideText.Location = new System.Drawing.Point(13, 62);
+            this.guideText.Location = new System.Drawing.Point(12, 22);
             this.guideText.Multiline = true;
             this.guideText.Name = "guideText";
             this.guideText.ReadOnly = true;
-            this.guideText.Size = new System.Drawing.Size(152, 106);
+            this.guideText.Size = new System.Drawing.Size(152, 190);
             this.guideText.TabIndex = 22;
             this.guideText.TabStop = false;
-            this.guideText.Text = "     *Note                   Click on sell button to add marked item to customers" +
-    " cart.";
+            this.guideText.Text = "*Note\r\nClick on sell item button to add marked item to customers cart.  \r\nClick o" +
+    "n return item button to return a customer product to inventory.";
             this.guideText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // productInventory
@@ -104,13 +105,13 @@
             this.productInventory.CausesValidation = false;
             this.productInventory.Font = new System.Drawing.Font("OpenSymbol", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.productInventory.ForeColor = System.Drawing.SystemColors.Window;
-            this.productInventory.Location = new System.Drawing.Point(312, 22);
+            this.productInventory.Location = new System.Drawing.Point(285, 22);
             this.productInventory.Name = "productInventory";
             this.productInventory.ReadOnly = true;
-            this.productInventory.Size = new System.Drawing.Size(309, 34);
+            this.productInventory.Size = new System.Drawing.Size(367, 34);
             this.productInventory.TabIndex = 25;
             this.productInventory.TabStop = false;
-            this.productInventory.Text = "Available products for sale";
+            this.productInventory.Text = "Available products for sale/return";
             this.productInventory.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox1
@@ -158,8 +159,8 @@
             this.textBox2.Size = new System.Drawing.Size(152, 174);
             this.textBox2.TabIndex = 27;
             this.textBox2.TabStop = false;
-            this.textBox2.Text = "     *Note                  Confirm sale button sells everything in the list and " +
-    "remove item moves back the product on the selected row to the inventory.";
+            this.textBox2.Text = "     *Note      Confirm sale button sells everything in the list and remove item " +
+    "moves back the product on the selected row to the inventory.";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // dataGridView2
@@ -313,12 +314,26 @@
             this.printDialog1.Document = this.printDocument1;
             this.printDialog1.UseEXDialog = true;
             // 
+            // returnItem
+            // 
+            this.returnItem.BackColor = System.Drawing.Color.DarkRed;
+            this.returnItem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.returnItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.returnItem.Location = new System.Drawing.Point(86, 218);
+            this.returnItem.Name = "returnItem";
+            this.returnItem.Size = new System.Drawing.Size(78, 32);
+            this.returnItem.TabIndex = 40;
+            this.returnItem.Text = "Return Item";
+            this.returnItem.UseVisualStyleBackColor = false;
+            this.returnItem.Click += new System.EventHandler(this.returnItem_Click);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(800, 534);
+            this.Controls.Add(this.returnItem);
             this.Controls.Add(this.totalCostTitle);
             this.Controls.Add(this.totalCostBox);
             this.Controls.Add(this.searchMediaTitle);
@@ -337,7 +352,7 @@
             this.Controls.Add(this.guideText);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form3";
-            this.Text = "Form3";
+            this.Text = "Cashier - Management";
             this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -368,5 +383,6 @@
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Windows.Forms.Button returnItem;
     }
 }
