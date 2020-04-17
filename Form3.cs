@@ -32,7 +32,7 @@ namespace mediaStore
         {
             readCSV();
             dataGridView2.DataSource = customerCart;
-            dataGridView1.Columns["sold"].Visible = false;
+           
             dataGridView2.Columns["quantity"].Visible = false;
             dataGridView2.Columns["media"].Visible = false;
             dataGridView2.Columns["sold"].Visible = false;
@@ -67,7 +67,7 @@ namespace mediaStore
                 }
 
                 dataGridView1.DataSource = productsList;
-                
+                dataGridView1.Columns["sold"].Visible = false;
 
             }
         }
@@ -260,6 +260,7 @@ namespace mediaStore
             // adding all ids of a sold product in 1 order
             string productIds = "";
             int linesCount = 0;
+            DateTime date = DateTime.Now;
             int index = 0;
             // order id increments by 1 for each existing receipt
             if (File.Exists("orders.csv")) { 
@@ -271,7 +272,7 @@ namespace mediaStore
                 {
                     productIds += customerCart[i].ProductId + ";";
                 }
-                Order orders = new Order(totalCost, productIds, linesCount + 1);
+                Order orders = new Order(totalCost, productIds, linesCount + 1, date);
                 writeOrdersToCSV(orders);
 
                 foreach (DataGridViewRow row in dataGridView2.Rows)
@@ -311,7 +312,7 @@ namespace mediaStore
             {
                 using (System.IO.StreamWriter file = new System.IO.StreamWriter("orders.csv", true))
                 {
-                    file.WriteLine(orders.OrderId + "," + orders.TotalPrice + "," + orders.Products + "," + orders.date);
+                    file.WriteLine(orders.OrderId + "," + orders.TotalPrice + "," + orders.Products + "," + orders.Date);
                 }
 
 

@@ -12,15 +12,15 @@ namespace mediaStore
       //  static int idCount = 0;
         public double TotalPrice { get; set; }
         public int OrderId { get; set; }
-        public string date { get; set; }
+        public DateTime Date { get; set; }
         public string Products { get; set; }
        // public List<int> Products { get; set; } = new List<int>();
         
 
-        public Order(double totalPrice, string products, int orderId)
+        public Order(double totalPrice, string products, int orderId, DateTime date)
         {
             
-            date = DateTime.Now.ToString();
+            Date = date;
             TotalPrice = totalPrice;
             OrderId = orderId;
           Products = products;
