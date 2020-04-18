@@ -203,13 +203,13 @@ namespace mediaStore
                     {
                        
                         
-                        System.Console.WriteLine("product id: " + productIds[k]);
+                       
 
                         if (productIds[k] == searchProductId.Text)
                             
                         {
                             count++;
-                            System.Console.WriteLine("amount of times sold" + count);
+                            
                         }
 
 

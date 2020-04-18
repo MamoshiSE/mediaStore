@@ -39,10 +39,30 @@ namespace mediaStore
             {
               
                 MessageBox.Show("Please fill in all input fields");
-            } else if (checkProductId(productId.Text) == true){
-                MessageBox.Show("Product ID already exists.");
             }
-            else
+            else if (int.TryParse(productId.Text, out _) == false)
+            {
+
+                MessageBox.Show("Please input only numbers for product id");
+
+            }
+            else if (int.TryParse(productQuantity.Text, out _) == false)
+            {
+
+                MessageBox.Show("Please input only numbers for product quantity");
+
+            }
+            else if (double.TryParse(productPrice.Text, out _) == false)
+            {
+
+                MessageBox.Show("Please input only numbers for product price");
+
+            }
+
+            else if (checkProductId(productId.Text) == true){
+                MessageBox.Show("Product ID already exists.");
+            } 
+                else
             {
                 string name = productName.Text;
                 double price = double.Parse(productPrice.Text);
@@ -143,24 +163,21 @@ namespace mediaStore
 
         private bool checkProductId(String product)
         {
-            try
-            {
-               
+
+            
+
+                for (int i = 0; i < productsList.Count; i++)
                 {
-                   for (int i = 0; i <productsList.Count; i++)
+                    if (productsList[i].ProductId == Int32.Parse(product))
                     {
-                        if (productsList[i].ProductId == Int32.Parse(product))
-                        {
-                            return true;
-                        } 
+                        return true;
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                throw new ApplicationException("Exception thrown", ex);
-               
-            }
+
+          
+
+            
+            
             return false;
         }
 
