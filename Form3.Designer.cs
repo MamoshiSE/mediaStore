@@ -351,7 +351,10 @@
             this.Controls.Add(this.addToCart);
             this.Controls.Add(this.guideText);
             this.Controls.Add(this.dataGridView1);
+            this.MaximumSize = new System.Drawing.Size(816, 573);
+            this.MinimumSize = new System.Drawing.Size(816, 573);
             this.Name = "Form3";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Cashier - Management";
             this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
