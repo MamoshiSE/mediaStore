@@ -40,22 +40,22 @@ namespace mediaStore
               
                 MessageBox.Show("Please fill in all input fields");
             }
-            else if (int.TryParse(productId.Text, out _) == false)
+            else if (int.TryParse(productId.Text, out _) == false || Int32.Parse(productId.Text) < 0)
             {
 
-                MessageBox.Show("Please input only numbers for product id");
+                MessageBox.Show("Please input only positive numbers for product id");
 
             }
-            else if (int.TryParse(productQuantity.Text, out _) == false)
+            else if (int.TryParse(productQuantity.Text, out _) == false || Int32.Parse(productQuantity.Text) < 0)
             {
 
-                MessageBox.Show("Please input only numbers for product quantity");
+                MessageBox.Show("Please input only positive numbers for product quantity");
 
             }
-            else if (double.TryParse(productPrice.Text, out _) == false)
+            else if (double.TryParse(productPrice.Text, out _) == false || Double.Parse(productPrice.Text) < 0)
             {
 
-                MessageBox.Show("Please input only numbers for product price");
+                MessageBox.Show("Please input only positive numbers for product price");
 
             }
 
@@ -184,8 +184,15 @@ namespace mediaStore
     
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-
-            updateCSV();
+            string cellValueQuantity = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+            if (int.TryParse(cellValueQuantity, out _) == false || Int32.Parse(cellValueQuantity) < 0)
+            {
+                MessageBox.Show("Quantity must be a positive number");
+            }
+            else
+            {
+                updateCSV();
+            }
         }
 
         private void button1_Click_1(object sender, EventArgs e)
