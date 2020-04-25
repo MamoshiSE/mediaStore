@@ -1,4 +1,4 @@
-#Media store
+# Media store
 A management application for a media store written in c#.net for a university course.
 The application is divided into 3 different screens (Start/main screen, Storeman screen and Cashier screen)
 
