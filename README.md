@@ -9,7 +9,7 @@ Functionality for Start/Main screen:
   revenue for the products over given period.
 
 <p align="center">
-  <img src="images/screen1.png">
+  <img src="screen1.png">
 </p>
 
 Functionality for Storeman screen:
@@ -19,7 +19,7 @@ Functionality for Storeman screen:
 - Delete sold out products.
 
 <p align="center">
-  <img src="images/screen2.png">
+  <img src="screen2.png">
 </p>
 
 Functionality for cashier screen:
@@ -30,7 +30,7 @@ Functionality for cashier screen:
 - Once sale is confirmed products CSV file is updated and a orders.CSV file is created/updated to store all sales.
 
 <p align="center">
-  <img src="images/screen3.png">
+  <img src="screen3.png">
 </p>
 
 
