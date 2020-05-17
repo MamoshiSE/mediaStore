@@ -230,5 +230,36 @@ namespace mediaStore
                 }
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            String writeFilePath;
+
+            writeFilePath = Directory.GetCurrentDirectory();
+            writeFilePath = (writeFilePath.Replace("mediaStore\\mediaStore", "simpleMedia\\simpleMedia"));
+            System.IO.Directory.CreateDirectory(writeFilePath + "\\Export");
+            writeFilePath = writeFilePath + "\\Export\\";
+           
+            File.Copy("products.csv", writeFilePath +  Path.GetFileName("exported-products.csv"), true);
+            MessageBox.Show("File copied to " + writeFilePath);
+
+            /*  FolderBrowserDialog fbd = new FolderBrowserDialog();
+              string writeFilePath;
+              fbd.SelectedPath = Directory.GetCurrentDirectory();
+              fbd.Description = "Select folder to extract data from";
+              fbd.ShowNewFolderButton = false;
+
+
+              if (fbd.ShowDialog() == DialogResult.OK)
+              {
+
+
+                  System.IO.Directory.CreateDirectory(fbd.SelectedPath + "\\Export");
+                  writeFilePath = fbd.SelectedPath + "\\Export";
+
+                  File.Copy("products.csv", writeFilePath + "\\" + Path.GetFileName("exported-products.csv"));
+                  MessageBox.Show("File copied to " + writeFilePath);
+
+              }*/
+        }
     }
 }
